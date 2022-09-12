@@ -1,0 +1,54 @@
+﻿using NUnit.Framework;
+using SGBank.BLL;
+using SGBank.Data;
+using SGBank.Models.Responses;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SGBankTest
+{
+    [TestFixture]
+    public class PremiumAccountTests
+    {
+        [Test]
+        public void CanLoadPremiumAccountData()
+        {
+            AccountManager manager = AccountManagerFactory.Create();
+            AccountLookupResponse response = manager.LookupAccount("24680");
+            Assert.IsNotNull(response.Account);
+            Assert.AreEqual("24680", response.Account.AccountNumber);
+        }
+        [TestCase("56789", "20.00", false)]
+        [TestCase("24680", "100.00", true)]
+        [TestCase("24680", "2345.00", true)]
+        public void PremiumAccountDepositRule(string accountNumber, string depositAmount, bool isValid)
+        {
+            AccountManager manager = new AccountManager(new PremiumAccountTestRepository());
+            AccountDepositResponse response = manager.Deposit(accountNumber, decimal.Parse(depositAmount));
+            decimal expectedBalance = response.OldBalance + response.Amount;
+            Assert.AreEqual(isValid, response.Success);
+            if (response.Success)
+            {
+                AccountLookupResponse lookupResponse = manager.LookupAccount("24680");
+                Assert.AreEqual(expectedBalance, lookupResponse.Account.Balance);
+            }
+        }
+        [TestCase("24680", "-800.00", true)]
+        [TestCase("24680", "0", false)]
+        public void PremiumAccountWithdrawRule(string accountNumber, string depositAmount, bool isValid)
+        {
+            AccountManager manager = new AccountManager(new PremiumAccountTestRepository());
+            AccountWithdrawResponse response = manager.Withdraw(accountNumber, decimal.Parse(depositAmount));
+            decimal expectedBalance = response.OldBalance + response.Amount;
+            Assert.AreEqual(isValid, response.Success);
+            if (response.Success)
+            {
+                AccountLookupResponse lookupResponse = manager.LookupAccount("24680");
+                Assert.AreEqual(expectedBalance, lookupResponse.Account.Balance);
+            }
+        }
+    }
+}

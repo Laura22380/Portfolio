@@ -1,0 +1,51 @@
+﻿@model CarDealership.UI.Models.AddMakesViewModel
+
+@{
+    ViewBag.Title = "Makes";
+}
+
+<h2>Makes</h2>
+<div class="container" style="border: solid">
+    @using (Html.BeginForm("Makes", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddMake" }))
+    {<div class="form-inline">
+            <label class="col-form-label" style="margin: 5px">New Make</label>
+            @Html.TextBoxFor(m => m.Make.MakeName)
+            <button type="submit" class="btn-outline-primary" style="margin: 5px;">Save</button>
+        </div>
+    }
+</div>
+<div class="col-xs-10">
+    @if (Model.Makes.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Make
+                    </th>
+                    <th>
+                        Date Added
+                    </th>
+                    <th>
+                        User
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var make in Model.Makes)
+                {
+                    <tr>
+                        <td>@make.MakeName</td>
+                        <td>@make.MakeDateAdded</td>
+                        <td>@make.UserEmail</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>You do not have any Makes.</p>
+    }
+
+</div>

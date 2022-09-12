@@ -1,0 +1,11 @@
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\bin\Debug\ShelterCatManager.View.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\bin\Debug\ShelterCatManager.View.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\bin\Debug\ShelterCatManager.Models.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\bin\Debug\ShelterCatManager.Models.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\obj\Debug\ShelterCatManager.View.csproj.AssemblyReference.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\obj\Debug\ShelterCatManager.View.csproj.CoreCompileInputs.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\obj\Debug\ShelterCatManager.View.csproj.CopyComplete
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\obj\Debug\ShelterCatManager.View.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\obj\Debug\ShelterCatManager.View.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\bin\Debug\ShelterCatManager.Data.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.View\bin\Debug\ShelterCatManager.Data.pdb

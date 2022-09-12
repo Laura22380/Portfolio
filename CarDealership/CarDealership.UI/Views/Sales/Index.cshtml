@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+<ul class="containeer" style="border: solid">
+    <li class="link-dark">
+        @Html.ActionLink("Change Password", "ChangePassword", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" })
+    </li>
+    <li class="link-dark">
+        @Html.ActionLink("Vehicles", "Vehicles", "Sales", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+
+    @*<li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>*@
+</ul>
+    }
+}

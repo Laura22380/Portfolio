@@ -1,0 +1,6 @@
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Models\bin\Debug\ShelterCatManager.Models.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Models\bin\Debug\ShelterCatManager.Models.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Models\obj\Debug\ShelterCatManager.Models.csproj.AssemblyReference.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Models\obj\Debug\ShelterCatManager.Models.csproj.CoreCompileInputs.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Models\obj\Debug\ShelterCatManager.Models.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Models\obj\Debug\ShelterCatManager.Models.pdb

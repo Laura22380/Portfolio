@@ -1,0 +1,28 @@
+﻿@model  MVC_SIS_UI.Models.AddEditStateVM
+@{
+    ViewBag.Title = "EditState";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Edit State</h3>
+        @Html.ActionLink("Return to List", "States", "Admin")
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(s => s.currentState.StateAbbreviation)
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>State Name</label>
+                @Html.TextBoxFor(s => s.currentState.StateName, new { @class = "form-control", placeholder = @Html.DisplayFor(s => s.currentState.StateName) })
+                <label>State Abbreviation</label>
+                @Html.TextBoxFor(s => s.currentState.StateAbbreviation, new { @class = "form-control", placeholder = @Html.DisplayFor(s => s.currentState.StateAbbreviation) })
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary">Save</button>
+            @Html.ActionLink("Cancel", "States", "Admin", null, new { @class = "btn btn-sm btn-info" })
+        }
+    </div>
+</div>

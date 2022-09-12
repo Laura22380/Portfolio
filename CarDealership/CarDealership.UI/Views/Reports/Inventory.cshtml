@@ -1,0 +1,116 @@
+﻿@model IEnumerable<CarDealership.Models.Queries.Inventory>
+@{
+    ViewBag.Title = "Inventory";
+}
+
+
+<div>
+    
+    <div class="col-sm-8">
+        <h2 style="margin: 5px 0px 5px 0px">Inventory Report</h2>
+        <h4 style="margin: 10px 0px 10px 0px; padding: 2px 0px 2px 0px">New Vehicles</h4>
+        @if (Model.Any())
+        {
+            <table class="table table-striped" style="border: solid;">
+                <thead>
+                    <tr>
+                        <th>
+                            Year
+                        </th>
+                        <th>
+                            Make
+                        </th>
+                        <th>
+                            Model
+                        </th>
+                        <th>
+                            Count
+                        </th>
+                        <th>
+                            Stock Value
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var vehicle in Model)
+                    {
+                        if (vehicle.Year == 2022)
+                        {
+                            <tr>
+                                <td>@vehicle.Year</td>
+                                <td>@vehicle.Make</td>
+                                <td>@vehicle.Model</td>
+                                <td>@vehicle.VehicleCount</td>
+                                <td>
+                                    @vehicle.StockValue.ToString("c")
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>You do not have any vehicles in stock.</p>
+        }
+
+    </div>
+    <div class="col-sm-8">
+        <h4 style="margin: 10px 0px 10px 0px; padding: 2px 0px 2px 0px">Used Vehicles</h4>
+        @if (Model.Any())
+        {
+            <table class="table table-striped" style="border: solid">
+                <thead>
+                    <tr>
+                        <th>
+                            Year
+                        </th>
+                        <th>
+                            Make
+                        </th>
+                        <th>
+                            Model
+                        </th>
+                        <th>
+                            Count
+                        </th>
+                        <th>
+                            Stock Value
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var vehicle in Model)
+                    {
+                        if (vehicle.Year < 2022)
+                        {
+                            <tr>
+                                <td>@vehicle.Year</td>
+                                <td>@vehicle.Make</td>
+                                <td>@vehicle.Model</td>
+                                <td>@vehicle.VehicleCount</td>
+                                <td>
+                                    @vehicle.StockValue.ToString("c")
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>You do not have any vehicles in stock.</p>
+        }
+
+    </div>
+</div>

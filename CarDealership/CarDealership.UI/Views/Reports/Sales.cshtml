@@ -1,0 +1,108 @@
+﻿@model IEnumerable<CarDealership.Models.Queries.SalesReport>
+@{
+    ViewBag.Title = "Sales";
+}
+<div class="col-10">
+    <h2 style="padding: 10px 0px 5px 0px">Sales Report</h2>
+    <div class="container" style="border: solid">
+        <h4>Filters</h4>
+        <div class="form-inline" id="searchForm">
+            <label for="userName" class="col-form-label" style="margin: 5px">User</label>
+            <select class="form-control" id="userName" name="userName">
+                <option value="">All</option>
+                @foreach (var salesReport in Model)
+                {
+                    <option>@salesReport.UserName</option>
+                }
+            </select>
+            <div class="md-form md-outline input-with-post-icon datepicker" id="date-picker" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="date-picker-example_root">
+                
+                <label for="fromDate" class="active picker-input">From Date</label>
+                <input type="date" id="fromDate" style="margin: 5px 5px 10px 5px" value="">
+            </div>
+            <div class="md-form md-outline input-with-post-icon datepicker" id="date-picker" aria-haspopup="true" aria-expanded="false" aria-readonly="false" aria-owns="date-picker-example_root">
+               
+                <label for="toDate" class="active">To Date</label>
+                <input type="date" id="toDate" style="margin: 5px 5px 10px 5px" value="2020-09-09">
+            </div>
+            <button type="submit" class="btn-primary" style="margin: 5px;" onclick="search()">Search</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+</div>
+<div class="col-6">
+    <div style="padding: 10px 0px 5px 0px" ><h3>Search Results</h3></div>
+
+    @if (Model.Any())
+    {
+        <table class="table table-striped" style="border: solid">
+            <thead>
+                <tr>
+                    <th>
+                        User
+                    </th>
+                    <th>
+                        Total Sales
+                    </th>
+                    <th>
+                        Total Vehicles
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="searchResults">
+                @foreach (var salesReport in Model)
+                {
+                    <tr>
+                        <td>@salesReport.UserName</td>
+                        <td>@salesReport.TotalSales.ToString("c")</td>
+                        <td>@salesReport.TotalVehicles</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</div>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#searchForm').submit(function (e) {
+                search();
+                return false;
+            });
+        });
+        function search() {
+            var params;
+            params = 'UserName=' + $('#userName').val() + '&fromDate=' + $('#fromDate').val() + '&toDate=' + $('#toDate').val();
+            console.log(params);
+
+            $.ajax({
+                type: 'GET',
+                url: 'https://localhost:44388/api/sales/search' + '?' + params,
+
+                success: function (results) {
+                    $('#searchResults').empty();
+
+                    $.each(results, function (index, user) {
+                        var row = '<tr>';
+                        row += '<td>' + user.UserName + '</td>';
+                        row += '<td>$ ' + user.TotalSales + '</td>';
+                        row += '<td>' + user.TotalVehicles + '</td>';
+                        row += '</tr>';
+
+                        $('#searchResults').append(row);
+                    });
+                },
+                error: function () {
+                    alert('Error performing search.')
+                }
+            });
+        }
+    </script>
+
+}

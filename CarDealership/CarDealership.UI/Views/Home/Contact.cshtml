@@ -1,0 +1,109 @@
+﻿@model CarDealership.UI.Models.ContactsViewModel
+@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>Name</label>
+                @Html.TextBoxFor(m => m.Person.ContactName, new { @class = "form-control"})
+
+                <label>Email</label>
+                @Html.TextBoxFor(m => m.Person.ContactEmail, new { @class = "form-control"})
+
+                <label>Phone</label>
+                @Html.TextBoxFor(m => m.Person.ContactPhone, new { @class = "form-control"})
+
+                @if (Model.VIN != null)
+                {
+                    <label>Message</label>
+                    @Html.TextAreaFor(m => m.Person.ContactMessage, new { @class = "form-control", @value = Model.VIN, @placeholder = Model.VIN})
+                }
+                else
+                { <label>Message</label>
+                    @Html.TextAreaFor(m => m.Person.ContactMessage, new { @class = "form-control"})
+                }
+
+
+                <div style="margin:5px 0px 5px 0px;"><button type="submit" class="btn btn-outline-success">Save</button></div>
+
+            </div>
+        }
+
+        <div>
+            <p id="thankYou"></p>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.1857821525136!2d-85.76134738228441!3d38.251997036857844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886972b8e69878d5%3A0xbc6e2b589c85088f!2sThe%20Software%20Guild!5e0!3m2!1sen!2sus!4v1661960056658!5m2!1sen!2sus" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <address>
+            427 S 4th St<br />
+            Louisville, KY 40202<br />
+        </address>
+
+        <address>
+            <strong>Sales:</strong>   <a href="mailto:Support@example.com">330-599-9584</a><br />
+            <strong>Service:</strong> <a href="mailto:Marketing@example.com">330-599-9585</a>
+        </address>
+    </div>
+
+</div>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            console.log('ready');
+            $('#frmAddContact').submit(function (e) {
+                /*save();*/
+                return false;
+            });
+            $('#frmAddContact').validate({
+                rules: {
+                    'ContactName': {
+                        required: true
+                    },
+                    'Message': {
+                        required: true
+                    },
+                }
+            });
+        });
+        //IF we were going to post through ajax rather than the form submit 
+        //function showThankYou() {
+        //    $('#thankYou').append("Thank you for filling out the contact form.");
+        //}
+
+        //function save() {
+        //    $.ajax({
+        //        type: 'POST',
+        //        url: 'https://localhost:44388/api/home/contact/add/',
+        //        data: JSON.stringify({
+        //            name: $('#name').val(),
+        //            email: $('#email').val(),
+        //            phone: $('#phone').val(),
+        //            message: $('#message').val()
+        //        }),
+        //        headers: {
+        //            Accept: "application/json",
+        //            "Content-Type": "application/json"
+        //        },
+        //        dataType: "json",
+        //        success: function () {
+        //            $('#frmAddContact').hide();
+        //            showThankYou();
+        //        },
+        //        error: function () {
+        //            alert('Error adding contact.')
+        //        }
+        //    });
+    </script>
+}

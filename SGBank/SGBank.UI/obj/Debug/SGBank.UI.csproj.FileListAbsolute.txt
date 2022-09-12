@@ -1,0 +1,14 @@
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\bin\Debug\SGBank.UI.exe.config
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\bin\Debug\SGBank.UI.exe
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\bin\Debug\SGBank.UI.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\bin\Debug\SGBank.BLL.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\bin\Debug\SGBank.Models.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\bin\Debug\SGBank.BLL.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\bin\Debug\SGBank.Models.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\obj\Debug\SGBank.UI.csproj.AssemblyReference.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\obj\Debug\SGBank.UI.csproj.CoreCompileInputs.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\obj\Debug\SGBank.UI.csproj.CopyComplete
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\obj\Debug\SGBank.UI.exe
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\obj\Debug\SGBank.UI.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\bin\Debug\SGBank.Data.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.UI\bin\Debug\SGBank.Data.pdb

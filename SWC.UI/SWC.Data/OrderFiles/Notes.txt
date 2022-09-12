@@ -1,0 +1,4 @@
+TODO
+
+Install nuget packages (specifically the one needed for configuration manager)
+Test GetbyId enddpoint to

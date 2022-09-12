@@ -1,0 +1,6 @@
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.Models\bin\Debug\SGBank.Models.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.Models\bin\Debug\SGBank.Models.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.Models\obj\Debug\SGBank.Models.csproj.AssemblyReference.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.Models\obj\Debug\SGBank.Models.csproj.CoreCompileInputs.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.Models\obj\Debug\SGBank.Models.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\SGBank\SGBank.Models\obj\Debug\SGBank.Models.pdb

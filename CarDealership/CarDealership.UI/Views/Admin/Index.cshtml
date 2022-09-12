@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    @Html.AntiForgeryToken()
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+<ul class="containeer" style="border: solid">
+    <li class="link-dark">
+        @Html.ActionLink("Change Password", "ChangePassword", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" })
+    </li>
+    <li class="link-dark">
+        @Html.ActionLink("Vehicles", "Vehicles", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li class="link-dark">
+        @Html.ActionLink("Makes", "Makes", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li class="link-dark">
+        @Html.ActionLink("Models", "Models", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li class="link-dark">
+        @Html.ActionLink("Specials", "Specials", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li class="link-dark">
+        @Html.ActionLink("Reports", "Index", "Reports", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li class="link-dark">
+        @Html.ActionLink("Users", "Users", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+
+    @*<li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>*@
+
+</ul>
+    }
+
+}

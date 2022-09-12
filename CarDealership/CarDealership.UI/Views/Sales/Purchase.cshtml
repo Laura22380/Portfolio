@@ -1,0 +1,177 @@
+﻿
+@model CarDealership.UI.Models.PurchaseViewModel
+
+@{
+    ViewBag.Title = "Purchase";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Purchase Vehicle</h2>
+    </div>
+</div>
+<div class="container" style="border: solid">
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <p><strong>@Model.Vehicle.Year, @Model.Vehicle.Make, @Model.Vehicle.Model</strong></p>
+            <p class="newVehicle"><img src="@Url.Content("~/Images/" + Model.Vehicle.ImageFileName)" style="max-width:160px"/></p>
+        </div>
+        <div class="col-md-3">
+            <p><strong>Body Style: </strong>@Model.Vehicle.BodyStyleName</p>
+            <p><strong>Trans: </strong>@Model.Vehicle.TransmissionName</p>
+            <p><strong>Color: </strong>@Model.Vehicle.ColorName</p>
+        </div>
+        <div class="col-md-3">
+            <p><strong>Interior: </strong>@Model.Vehicle.InteriorName</p>
+            <p><strong>Mileage: </strong>New</p>
+            <p id="vin"><strong>VIN: </strong>@Model.Vehicle.VIN</p>
+        </div>
+        <div class="col-md-3">
+            <p><strong>Sale Price: </strong>@Model.Vehicle.SalePrice.ToString("c")</p>
+            <p><strong>MSRP: </strong>@Model.Vehicle.MSRP.ToString("c")</p>
+        </div>
+    </div>
+    <div class="offset-md-3">
+        <p><strong>Description: </strong>@Model.Vehicle.VehicleDescription</p>
+    </div>
+</div>
+
+<div class="row">
+    <h3 style="margin: 10px 0px 10px 0px">Sales Information</h3>
+</div>
+
+<div>
+    @using (Html.BeginForm("Purchase", "Sales", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmPurchaseVehicle", role="form" }))
+    {
+        @Html.ValidationSummary()
+        @Html.HiddenFor(m=>m.Vehicle.VIN)
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>Name</label>
+                @Html.TextBoxFor(m => m.Buyer.BuyerName, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                <label>Phone</label>
+                @Html.TextBoxFor(m => m.Buyer.BuyerPhone, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>Email</label>
+                @Html.TextBoxFor(m => m.Buyer.BuyerEmail, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>Street 1</label>
+                @Html.TextBoxFor(m => m.Buyer.BuyerStreet1, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                <label>Street 2</label>
+                @Html.TextBoxFor(m => m.Buyer.BuyerStreet2, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>City</label>
+                @Html.TextBoxFor(m => m.Buyer.BuyerCity, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                <label>State</label>
+                @Html.DropDownListFor(m => m.Buyer.StateId, Model.States, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Zipcode</label>
+            @Html.TextBoxFor(m => m.Buyer.BuyerZipCode, new { @class = "form-control" })
+        </div>
+        <hr />
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>Purchase Price</label>
+                @Html.TextBoxFor(m => m.VehicleSale.PurchasePrice, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                <label>Purchase Type</label>
+                <select class="form-control" id="PurchaseType" name="PurchaseType">
+                    <option>Dealer Finance</option>
+                    <option>Bank Finance</option>
+                    <option>Cash</option>
+                </select>
+                @*@Html.DropDownListFor(m => m.VehicleSale.PurchaseType, Model.PurchaseTypes, new { @class = "form-control" })*@
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" onclick="savePurchase()">Save</button>
+    }
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            console.log('ready');
+            $('#frmPurchaseVehicle').submit(function (e) {
+                savePurchase();
+                return false;
+            $('#frmPurchaseVehicle').validate({
+                rules: {
+                    'Buyer.BuyerName': {
+                        required: true
+                    },
+                    'Buyer.Phone': { //or Email??
+                        required: true
+                    },
+                    'Buyer.BuyerStreet1': {
+                        required: true
+                    },
+                    'Buyer.BuyerCity': {
+                        required: true
+                    },
+                    'Buyer.BuyerStateId': {
+                        required: true
+                    },
+                    'Buyer.BuyerZipcode': {
+                        required: true,
+                        number: true
+                    },
+                    'PurchasePrice': {
+                        required: true,
+                        number: true,
+                        min: 1
+                    },
+                    'PurchaseType': {
+                        required: true
+                    }
+                }
+            });
+        });
+        
+        function savePurchase() {
+            var VIN;
+            VIN = $('#vin');
+
+            $.ajax({
+                type: 'POST',
+                url: 'https://localhost:44388/api/sales/purchase/' + VIN,
+                data: JSON.stringify({
+                    //add the info here
+                    notes: $('#addNotes').val()
+                }),
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                dataType: "json",
+                success: function () {
+                    $('#frmPurchaseVehicle').empty();
+                    alert('Successfully purchased vehicle')
+                },
+                error: function () {
+                    alert('Error performing search.')
+                }
+            });
+        }
+    </script>
+}

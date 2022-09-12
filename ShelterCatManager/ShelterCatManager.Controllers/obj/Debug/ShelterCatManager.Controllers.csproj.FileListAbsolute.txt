@@ -1,0 +1,15 @@
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\bin\Debug\ShelterCatManager.Controllers.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\bin\Debug\ShelterCatManager.Controllers.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\bin\Debug\ShelterCatManager.Data.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\bin\Debug\ShelterCatManager.Models.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\bin\Debug\ShelterCatManager.View.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\bin\Debug\ShelterCatManager.Data.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\bin\Debug\ShelterCatManager.Models.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\bin\Debug\ShelterCatManager.View.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\obj\Debug\ShelterCatManager.Controllers.csproj.AssemblyReference.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\obj\Debug\ShelterCatManager.Controllers.csproj.CoreCompileInputs.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\obj\Debug\ShelterCatManager.Controllers.csproj.CopyComplete
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\obj\Debug\ShelterCatManager.Controllers.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\obj\Debug\ShelterCatManager.Controllers.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\bin\Debug\ShelterCatManager.BLL.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\ShelterCatManager\ShelterCatManager.Controllers\bin\Debug\ShelterCatManager.BLL.pdb

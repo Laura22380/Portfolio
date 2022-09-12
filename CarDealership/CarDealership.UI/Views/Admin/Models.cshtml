@@ -1,0 +1,60 @@
+﻿@model CarDealership.UI.Models.AddModelsViewModel
+
+@{
+    ViewBag.Title = "Models";
+}
+
+<h2>Models</h2>
+<div class="container" style="border: solid">
+    @using (Html.BeginForm("Models", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddModel", role = "form" }))
+    {
+        <div class="form-inline">
+            <label class="col-form-label" style="margin: 5px">New Model</label>
+            @Html.TextBoxFor(m => m.CarModel.ModelName)
+            <label class="col-form-label" style="margin: 5px">Make</label>
+            @Html.DropDownListFor(m => m.CarModel.MakeId, Model.Makes, new { @class = "form-control" })
+            <button type="submit" class="btn-outline-primary" style="margin: 5px;" onclick="return confirm('Are you sure you spelled the model correctly?')">Save</button>
+        </div>
+
+    }
+
+</div>
+<div class="col-xs-10">
+    @if (Model.Models.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Make
+                    </th>
+                    <th>
+                        Model
+                    </th>
+                    <th>
+                        Date Added
+                    </th>
+                    <th>
+                        User
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var modelType in Model.Models)
+                {
+                    <tr>
+                        <td>@modelType.Make</td>
+                        <td>@modelType.ModelName</td>
+                        <td>@modelType.ModelDateAdded</td>
+                        <td>@modelType.UserEmail</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>You do not have any Models.</p>
+    }
+
+</div>

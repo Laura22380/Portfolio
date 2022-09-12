@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CarDealership.Models.Queries.VehicleFeaturedItem>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron text-white jumbotron-image" id="jumbo1" style="background-image: url(https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2029&q=80) " onclick="showSpecials()">
+    <h1>BIG SALE</h1>
+    <p>We have all new Ford SUVs on sale for 5% off with $0 down.</p>
+</div>
+<div class="jumbotron text-white jumbotron-image" id="jumbo2" style="background-image: url(https://images.unsplash.com/photo-1557682260-96773eb01377?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2029&q=80) " onclick="showSpecials()">
+    <h1>BIG SALE 2</h1>
+    <p>For the next 7 days, all used cars available to drive off the lot TODAY.</p>
+</div>
+<div class="jumbotron text-white jumbotron-image" id="jumbo3" style="background-image: url(https://images.unsplash.com/photo-1617957718645-7680362d6312?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80) " onclick="showSpecials()">
+    <h1>BIG SALE 3</h1>
+    <p>All cash payments receive a 2% discount on final price.</p>
+</div>
+<div class="jumbotron text-white jumbotron-image" id="jumbo4" style="background-image: url(https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2029&q=80) " onclick="showSpecials()">
+    <h1>BIG SALE 4</h1>
+    <p>We have all Subarus on sale to veterans. Ask about the specific details inside!</p>
+</div>
+<hr />
+<div class="row">
+    <h2>Featured Vehicles</h2>
+</div>
+<div class="row">
+    @foreach (var vehicle in Model)
+    {
+        <div class="col-md-4">
+            <p class="featuredVehicle" id="featuredVehicle" ><img src="@Url.Content("~/Images/" + vehicle.ImageFileName)" style="max-width: 200px"/></p>
+            <p class="featuredVehicle" id="featuredVehicle"><strong>@vehicle.Year, @vehicle.Make, @vehicle.Model</strong></p>
+            <p class="featuredVehicle" id="featuredVehicle">@vehicle.SalePrice.ToString("c")</p>
+            <p class="featuredVehicle" id="featuredVehicle">@Html.ActionLink("view details", "Details", "Inventory", new { VIN = vehicle.VIN }, null)</p>
+        </div>
+    }
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#jumbo2').hide();
+            $('#jumbo3').hide();
+            $('#jumbo4').hide();
+            setTimeout(myJumbo, 6000);
+            setInterval(myJumbo3, 12000);
+            setInterval(myJumbo4, 18000);
+        });
+
+        function myJumbo() {
+            $('#jumbo1').hide();
+            $('#jumbo2').show();
+        }
+        function myJumbo3() {
+            $('#jumbo2').hide();
+            $('#jumbo3').show();
+            $('#jumbo4').hide();
+        }
+        function myJumbo4() {
+            $('#jumbo3').hide();
+            $('#jumbo4').show();
+        }
+
+        function showSpecials() {
+            window.location.replace("https://localhost:44388/Home/Specials")
+        }
+    </script>
+}

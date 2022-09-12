@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    
+    @Html.AntiForgeryToken()
+
+<ul class="nav navbar-nav navbar-right">
+    <li class="nav-link">
+        @Html.ActionLink("Sales", "Index", "Sales")
+    </li>
+
+        @if(User.IsInRole("admin"))
+        {
+        <li class="nav-link">@Html.ActionLink("Admin", "Index", "Admin")</li>
+        }
+
+</ul>
+}
+else
+{
+    @*<ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>*@
+}

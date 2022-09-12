@@ -1,0 +1,28 @@
+﻿@model List<CarDealership.Models.Tables.Specials>
+
+@{
+    ViewBag.Title = "Specials";
+}
+
+<div class="container">
+    <h2>Specials</h2>
+    <div class="row">
+        @foreach (var special in Model)
+        {
+            <div class="col-md-12">
+                <div class="row" style="border: solid 1px; padding: 10px; margin:5px 0px 5px 0px">
+                    <div class="col-md-3">
+                        <p class="newVehicle"><img src="@Url.Content("~/Images/specials1.png")" style="max-height:fit-content"/></p>
+                    </div>
+                    <div class="col-md-9">
+                        <p><strong>@special.SpecialTitle</strong></p>
+                        <p>@special.SpecialDescription</p>
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+

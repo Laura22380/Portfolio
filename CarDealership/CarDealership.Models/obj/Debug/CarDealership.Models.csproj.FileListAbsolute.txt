@@ -1,0 +1,6 @@
+C:\Repos\online-net-2021-Triton22830\Summatives\CarDealership\CarDealership.Models\bin\Debug\CarDealership.Models.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\CarDealership\CarDealership.Models\bin\Debug\CarDealership.Models.pdb
+C:\Repos\online-net-2021-Triton22830\Summatives\CarDealership\CarDealership.Models\obj\Debug\CarDealership.Models.csproj.AssemblyReference.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\CarDealership\CarDealership.Models\obj\Debug\CarDealership.Models.csproj.CoreCompileInputs.cache
+C:\Repos\online-net-2021-Triton22830\Summatives\CarDealership\CarDealership.Models\obj\Debug\CarDealership.Models.dll
+C:\Repos\online-net-2021-Triton22830\Summatives\CarDealership\CarDealership.Models\obj\Debug\CarDealership.Models.pdb
