@@ -1,0 +1,35 @@
+﻿@model CCAPL.UI.Models.AddEditMembersViewModel
+
+@{
+    ViewBag.Title = "AddMember";
+}
+
+<div class="container">
+<h2>AddMember</h2>
+
+@using (Html.BeginForm("AddMember", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddMember" }))
+{
+    @Html.ValidationSummary()
+    <div class="row">
+        <div class="form-group col-6">
+            <label>First Name</label>
+            @Html.TextBoxFor(m => m.Member.MemberFirstName, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-6">
+            <label>Last Name</label>
+            @Html.TextBoxFor(m => m.Member.MemberLastName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            <label>Email</label>
+            @Html.TextBoxFor(m => m.Member.MemberEmail, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-6">
+            <label>Phone</label>
+            @Html.TextBoxFor(m => m.Member.MemberPhone, new { @class = "form-control" })
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+</div>

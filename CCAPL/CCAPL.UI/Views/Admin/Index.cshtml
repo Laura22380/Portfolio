@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    @Html.AntiForgeryToken()
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+<ul class="container" style="border: solid; padding: 15px">
+    <li class="link-dark" style="margin: 5px">
+        @Html.ActionLink("Change Password", "ChangePassword", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" })
+    </li>
+    <li class="link-dark" style="margin: 5px">
+        @Html.ActionLink("Members", "Members", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+
+    <li style="margin: 5px">
+        @Html.ActionLink("Register New Admin User", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+    </li>
+
+    @*<li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>*@
+
+</ul>
+    }
+
+}

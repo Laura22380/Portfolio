@@ -1,0 +1,9 @@
+C:\Repos\Examples\CCAPL\CCAPL.Data\bin\Debug\CCAPL.Data.dll
+C:\Repos\Examples\CCAPL\CCAPL.Data\bin\Debug\CCAPL.Data.pdb
+C:\Repos\Examples\CCAPL\CCAPL.Data\bin\Debug\CCAPL.Models.dll
+C:\Repos\Examples\CCAPL\CCAPL.Data\bin\Debug\CCAPL.Models.pdb
+C:\Repos\Examples\CCAPL\CCAPL.Data\obj\Debug\CCAPL.Data.csproj.AssemblyReference.cache
+C:\Repos\Examples\CCAPL\CCAPL.Data\obj\Debug\CCAPL.Data.csproj.CoreCompileInputs.cache
+C:\Repos\Examples\CCAPL\CCAPL.Data\obj\Debug\CCAPL.Data.csproj.CopyComplete
+C:\Repos\Examples\CCAPL\CCAPL.Data\obj\Debug\CCAPL.Data.dll
+C:\Repos\Examples\CCAPL\CCAPL.Data\obj\Debug\CCAPL.Data.pdb

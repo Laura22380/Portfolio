@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CCAPL.Models.Tables.Members>
+@{
+    ViewBag.Title = "Members";
+}
+
+<h2>Members</h2>
+
+
+<div>
+    @Html.ActionLink("Add a new member", "AddMember", "Admin")
+    <div class="col-xs-10">
+        @if (Model.Any())
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Last Name
+                        </th>
+                        <th>
+                            First Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Phone
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var member in Model)
+                    {
+                        <tr>
+                            <td>@member.MemberLastName</td>
+                            <td>@member.MemberFirstName</td>
+                            <td>@member.MemberEmail</td>
+                            <td>@member.MemberPhone</td>
+                            <td>
+                                @Html.ActionLink("edit", "EditMember", "Admin", new { id = member.MemberId }, null)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>You do not have any members to display.</p>
+        }
+
+    </div>
+</div>
