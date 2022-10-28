@@ -12,7 +12,19 @@ namespace CCAPL.UI.Models
         public Members Member { get; set; }
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            throw new NotImplementedException();
+            List<ValidationResult> errors = new List<ValidationResult>();
+
+            if (string.IsNullOrEmpty(Member.MemberFirstName))
+            {
+                errors.Add(new ValidationResult("First name is required."));
+            }
+
+            if (string.IsNullOrEmpty(Member.MemberLastName))
+            {
+                errors.Add(new ValidationResult("Last name is required."));
+            }
+
+            return errors;
         }
     }
 }

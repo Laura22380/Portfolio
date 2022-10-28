@@ -79,10 +79,25 @@ namespace CCAPL.Data.ADO
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@MemberId", member.MemberId);
-                cmd.Parameters.AddWithValue("@FirstName", member.MemberFirstName);
-                cmd.Parameters.AddWithValue("@LastName", member.MemberLastName);
-                cmd.Parameters.AddWithValue("@Email", member.MemberEmail);
-                cmd.Parameters.AddWithValue("@UserRole", member.MemberPhone);
+                cmd.Parameters.AddWithValue("@MemberFirstName", member.MemberFirstName);
+                cmd.Parameters.AddWithValue("@MemberLastName", member.MemberLastName);
+                if (string.IsNullOrEmpty(member.MemberEmail))
+                {
+                    cmd.Parameters.AddWithValue("@MemberEmail", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@MemberEmail", member.MemberEmail);
+                }
+
+                if (string.IsNullOrEmpty(member.MemberPhone))
+                {
+                    cmd.Parameters.AddWithValue("@MemberPhone", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@MemberPhone", member.MemberPhone);
+                }
 
                 cn.Open();
 
@@ -102,10 +117,25 @@ namespace CCAPL.Data.ADO
                 param.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(param);
 
-                cmd.Parameters.AddWithValue("@FirstName", member.MemberFirstName);
-                cmd.Parameters.AddWithValue("@LastName", member.MemberLastName);
-                cmd.Parameters.AddWithValue("@Email", member.MemberEmail);
-                cmd.Parameters.AddWithValue("@UserRole", member.MemberPhone);
+                cmd.Parameters.AddWithValue("@MemberFirstName", member.MemberFirstName);
+                cmd.Parameters.AddWithValue("@MemberLastName", member.MemberLastName);
+                if (string.IsNullOrEmpty(member.MemberEmail))
+                {
+                    cmd.Parameters.AddWithValue("@MemberEmail", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@MemberEmail", member.MemberEmail);
+                }
+
+                if (string.IsNullOrEmpty(member.MemberPhone))
+                {
+                    cmd.Parameters.AddWithValue("@MemberPhone", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@MemberPhone", member.MemberPhone);
+                }
 
                 cn.Open();
 

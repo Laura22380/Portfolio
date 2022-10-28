@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<CCAPL.Models.Tables.Tributes>
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -14,5 +15,26 @@
 <div class="row">
     <div class="col-md-12">
         <p>memorials go here</p>
+    </div>
+    <div class="row">
+        @if(Model != null && Model.Any())
+        { 
+            foreach (var tribute in Model)
+            {
+                if (tribute.CreatedDate.Month == DateTime.Now.Month && tribute.CreatedDate.Year == DateTime.Now.Year)
+                {
+                <h2>@tribute.CreatedDate.Month, @tribute.CreatedDate.Year</h2>
+                }
+            <div class="col-md-4">
+                <p class="memorial"><strong>@tribute.TributeMessage</strong></p>
+                <p class="memorial">@tribute.CreatedDate</p>
+                <p class="memorial">@Html.ActionLink("view details", "Details", "Admin", new { id = tribute.TributeId }, null)</p>
+            </div>
+            }
+        }
+        else
+        {
+            <p>There are no tributes to display currently. Please check back later.</p>
+        }
     </div>
 </div>

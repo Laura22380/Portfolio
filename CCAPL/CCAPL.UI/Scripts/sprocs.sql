@@ -32,6 +32,24 @@ GO
 
 
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'MembersInsert')
+		DROP PROCEDURE MembersInsert
+GO
+
+CREATE PROCEDURE MembersInsert(
+	@MemberId int output,
+	@MemberFirstName varchar(15),
+	@MemberLastName varchar(15),
+	@MemberEmail varchar(25),
+	@MemberPhone varchar(15)
+) AS
+BEGIN
+	INSERT INTO Members(MemberFirstName, MemberLastName, MemberEmail, MemberPhone)
+		VALUES(@MemberFirstName, @MemberLastName, @MemberEmail, @MemberPhone)
+END
+GO
+
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
 	WHERE ROUTINE_NAME = 'TributesSelectAll')
 		DROP PROCEDURE TributesSelectAll
 GO

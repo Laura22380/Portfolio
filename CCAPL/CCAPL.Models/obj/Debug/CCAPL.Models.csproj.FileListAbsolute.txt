@@ -4,3 +4,9 @@ C:\Repos\Examples\CCAPL\CCAPL.Models\obj\Debug\CCAPL.Models.csproj.AssemblyRefer
 C:\Repos\Examples\CCAPL\CCAPL.Models\obj\Debug\CCAPL.Models.csproj.CoreCompileInputs.cache
 C:\Repos\Examples\CCAPL\CCAPL.Models\obj\Debug\CCAPL.Models.dll
 C:\Repos\Examples\CCAPL\CCAPL.Models\obj\Debug\CCAPL.Models.pdb
+C:\Repos\Examples\Examples\CCAPL\CCAPL.Models\bin\Debug\CCAPL.Models.dll
+C:\Repos\Examples\Examples\CCAPL\CCAPL.Models\bin\Debug\CCAPL.Models.pdb
+C:\Repos\Examples\Examples\CCAPL\CCAPL.Models\obj\Debug\CCAPL.Models.csproj.AssemblyReference.cache
+C:\Repos\Examples\Examples\CCAPL\CCAPL.Models\obj\Debug\CCAPL.Models.csproj.CoreCompileInputs.cache
+C:\Repos\Examples\Examples\CCAPL\CCAPL.Models\obj\Debug\CCAPL.Models.dll
+C:\Repos\Examples\Examples\CCAPL\CCAPL.Models\obj\Debug\CCAPL.Models.pdb

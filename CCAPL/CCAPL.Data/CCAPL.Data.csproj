@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ADO\MembersRepository.cs" />
+    <Compile Include="ADO\TributesRepository.cs" />
     <Compile Include="Interfaces\IMembersRepository.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

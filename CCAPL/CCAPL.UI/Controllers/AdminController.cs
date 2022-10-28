@@ -51,6 +51,43 @@ namespace CCAPL.UI.Controllers
 
         }
 
+        public ActionResult AddTribute(Tributes tribute)
+        {
+            var repo = new TributesRepository();
+            var model = new AddEditTributesViewModel();
+            model.Tribute = new Tributes();
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult AddTribute(AddEditTributesViewModel model)
+        {
+            var repo = new TributesRepository();
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    repo.Create(model.Tribute);
+
+                    return RedirectToAction("Tributes", "Admin");
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+            model.Tribute = repo.GetById(model.Tribute.TributeId);
+            return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var model = TributesRepository.GetDetails(id);
+            return View(model);
+        }
+
         public ActionResult EditMember(int id)
         {
             var repo = new MembersRepository();
@@ -87,6 +124,14 @@ namespace CCAPL.UI.Controllers
         public ActionResult Members()
         {
             var repo = new MembersRepository();
+            var model = repo.GetAll();
+
+            return View(model);
+        }
+
+        public ActionResult Tributes()
+        {
+            var repo = new TributesRepository();
             var model = repo.GetAll();
 
             return View(model);
