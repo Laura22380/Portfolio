@@ -11,25 +11,25 @@
     @using (Html.BeginForm("AddTribute", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddTribute" }))
     {
         @Html.ValidationSummary()
-        //REVAMP THIS WHOLE FORM FOR THE IN MEMORY OF TEMPLATE.
         <div class="row">
+            @*<div class="form-group col-6">
+                <label>Message Introduction</label>
+                <select class="form-control" id="messageIntro" name="messageIntro">
+                    <option>Select Option</option>
+                    <option>In Honor of</option>
+                    <option>In Memory of</option>
+                </select>
+            </div>*@
             <div class="form-group col-6">
-                <label>First Name</label>
-                @Html.TextBoxFor(m => m.Member.MemberFirstName, new { @class = "form-control" })
-            </div>
-            <div class="form-group col-6">
-                <label>Last Name</label>
-                @Html.TextBoxFor(m => m.Member.MemberLastName, new { @class = "form-control" })
+                <label>Tribute Message</label>
+                @Html.TextBoxFor(m => m.Tribute.TributeMessage, new { @class = "form-control" })
             </div>
         </div>
         <div class="row">
             <div class="form-group col-6">
-                <label>Email</label>
-                @Html.TextBoxFor(m => m.Member.MemberEmail, new { @class = "form-control" })
-            </div>
-            <div class="form-group col-6">
-                <label>Phone</label>
-                @Html.TextBoxFor(m => m.Member.MemberPhone, new { @class = "form-control" })
+                @* Let the member be able to be selected or if other, write in the non-member who donated *@
+                <label>Member</label>
+                @Html.DropDownListFor(m => m.Tribute.MemberId, Model.Members, new { @class = "form-control" })
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Save</button>

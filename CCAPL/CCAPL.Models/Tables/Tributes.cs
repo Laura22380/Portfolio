@@ -12,6 +12,7 @@ namespace CCAPL.Models.Tables
         public string TributeMessage { get; set; }
         public decimal DonationAmount { get; set; }
         public int MemberId { get; set; }
+        public Members Member { get; set; }
         public DateTime CreatedDate { get; set; }
 
     }
