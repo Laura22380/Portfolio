@@ -1,0 +1,7 @@
+C:\Repos\Examples\MadLibs\MadLibs.UI\bin\Debug\MadLibs.UI.exe.config
+C:\Repos\Examples\MadLibs\MadLibs.UI\bin\Debug\MadLibs.UI.exe
+C:\Repos\Examples\MadLibs\MadLibs.UI\bin\Debug\MadLibs.UI.pdb
+C:\Repos\Examples\MadLibs\MadLibs.UI\obj\Debug\MadLibs.UI.csproj.AssemblyReference.cache
+C:\Repos\Examples\MadLibs\MadLibs.UI\obj\Debug\MadLibs.UI.csproj.CoreCompileInputs.cache
+C:\Repos\Examples\MadLibs\MadLibs.UI\obj\Debug\MadLibs.UI.exe
+C:\Repos\Examples\MadLibs\MadLibs.UI\obj\Debug\MadLibs.UI.pdb
