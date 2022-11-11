@@ -1,0 +1,6 @@
+C:\Repos\Examples\Examples\EmailApp2\EmailAppV2.Models\bin\Debug\EmailAppV2.Models.dll
+C:\Repos\Examples\Examples\EmailApp2\EmailAppV2.Models\bin\Debug\EmailAppV2.Models.pdb
+C:\Repos\Examples\Examples\EmailApp2\EmailAppV2.Models\obj\Debug\EmailAppV2.Models.csproj.AssemblyReference.cache
+C:\Repos\Examples\Examples\EmailApp2\EmailAppV2.Models\obj\Debug\EmailAppV2.Models.csproj.CoreCompileInputs.cache
+C:\Repos\Examples\Examples\EmailApp2\EmailAppV2.Models\obj\Debug\EmailAppV2.Models.dll
+C:\Repos\Examples\Examples\EmailApp2\EmailAppV2.Models\obj\Debug\EmailAppV2.Models.pdb

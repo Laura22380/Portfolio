@@ -1,0 +1,89 @@
+﻿@model EmailAppV2.Models.EmailViewModel
+
+<div class="jumbotron">
+    <h1>Client Name</h1>
+    <p class="lead">Client, you may send emails from this interface.</p>
+</div>
+<div class="container">
+    <div class="col-md-12">
+        <h2>Input email details</h2>
+        @using (Html.BeginForm("SaveEmail", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmSaveEmail", role = "form" }))
+        {
+            @Html.ValidationSummary()
+            <div class="form-group col-md-12">
+                <div class="form-group">
+                    <label>Recipient:</label>
+                    @Html.TextBoxFor(m => m.EmailLog.Recipient, new { @class = "form-control" })
+                </div>
+                @*//Here you could add lists from databases to add multiple recipients at once.
+                <div class="form-group col-md-6">
+                    <label>Select Multiple Recipients</label>
+                    @Html.ListBoxFor(m => m.Recipient.RecipientID, Model.Recipients, new { @class = "form-control" })
+                </div>*@
+                <div class="form-group">
+                    <label>CC:</label>
+                    @Html.TextBoxFor(m => m.CarbonCopies, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>BCC:</label>
+                    @Html.TextBoxFor(m => m.BlindCarbonCopies, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Subject:</label>
+                    @Html.TextBoxFor(m => m.EmailLog.EmailSubject, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Body:</label>
+                    @Html.TextAreaFor(m => m.EmailLog.Body, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Reply To Email if different from sender:</label>
+                    @Html.TextBoxFor(m => m.ReplyToEmail, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Attachment:</label>
+                    <input id="ImageUpload" name="ImageUpload" type="file" class="form-control" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" @*onclick="sendEmail()"*@>Send</button>
+        }
+    </div>
+</div>
+
+@section scripts
+{
+    @*<script>
+        $(document).ready(function () {
+            console.log('ready');
+            $('#frmSaveEmail').submit(function (e) {
+                send();
+                return false;
+            });
+        });
+        function send() {
+            var params;
+            var imagePath = '@Url.Content("~/Images/")';
+            params = 'minPrice=' + $('#minPriceSelect').val() + '&maxPrice=' + $('#maxPriceSelect').val() + '&minYear=' + $('#minYearSelect').val() +
+                '&maxYear=' + $('#maxYearSelect').val() + '&makeModelYear=' + $('#makeModelYear').val();
+
+            var editPath = '@Url.Action("Edit", "Admin")';
+            console.log(params)
+            $.ajax({
+                type: 'GET',
+                url: 'https://localhost:44388/api/vehicles/search' + '?' + params,
+                success: function (results) {
+                    $('#searchResults').empty();
+                    $.each(results, function () {
+                        var html = '';
+
+                        $('#searchResults').append(html);
+                    });
+                },
+                error: function () {
+                    alert('Error sending email.')
+                }
+            });
+        }
+    </script>*@
+}
