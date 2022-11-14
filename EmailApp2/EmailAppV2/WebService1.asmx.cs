@@ -38,8 +38,17 @@ namespace EmailAppV2
                 smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
                 smtp.Credentials = networkCred;
                 smtp.Port = smtpSection.Network.Port;
-                smtp.Send(mm);
+                try
+                {
+                    smtp.Send(mm);
+                }
+                catch (Exception)
+                {
+                    email.EmailLog.SendStatus = false;
+                    return "Email send failed.";
+                }
             }
+            email.EmailLog.SendStatus = true;
             return "Email sent successfully.";
         }
     }

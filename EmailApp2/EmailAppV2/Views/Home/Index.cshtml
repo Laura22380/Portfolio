@@ -12,14 +12,14 @@
             @Html.ValidationSummary()
             <div class="form-group col-md-12">
                 <div class="form-group">
-                    <label>Recipient:</label>
+                    <label for="recipient">Recipient:</label>
                     @Html.TextBoxFor(m => m.EmailLog.Recipient, new { @class = "form-control" })
                 </div>
                 @*//Here you could add lists from databases to add multiple recipients at once.
-                <div class="form-group col-md-6">
-                    <label>Select Multiple Recipients</label>
-                    @Html.ListBoxFor(m => m.Recipient.RecipientID, Model.Recipients, new { @class = "form-control" })
-                </div>*@
+                    <div class="form-group col-md-6">
+                        <label>Select Multiple Recipients</label>
+                        @Html.ListBoxFor(m => m.Recipient.RecipientID, Model.Recipients, new { @class = "form-control" })
+                    </div>*@
                 <div class="form-group">
                     <label>CC:</label>
                     @Html.TextBoxFor(m => m.CarbonCopies, new { @class = "form-control" })
@@ -29,11 +29,11 @@
                     @Html.TextBoxFor(m => m.BlindCarbonCopies, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <label>Subject:</label>
+                    <label for="subject">Subject:</label>
                     @Html.TextBoxFor(m => m.EmailLog.EmailSubject, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <label>Body:</label>
+                    <label for="body">Body:</label>
                     @Html.TextAreaFor(m => m.EmailLog.Body, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" @*onclick="sendEmail()"*@>Send</button>
+            <button type="submit" class="btn btn-primary" id="sendBtn" @*onclick="sendEmail()"*@>Send</button>
         }
     </div>
 </div>
@@ -54,36 +54,35 @@
 @section scripts
 {
     @*<script>
-        $(document).ready(function () {
-            console.log('ready');
-            $('#frmSaveEmail').submit(function (e) {
-                send();
-                return false;
-            });
-        });
-        function send() {
-            var params;
-            var imagePath = '@Url.Content("~/Images/")';
-            params = 'minPrice=' + $('#minPriceSelect').val() + '&maxPrice=' + $('#maxPriceSelect').val() + '&minYear=' + $('#minYearSelect').val() +
-                '&maxYear=' + $('#maxYearSelect').val() + '&makeModelYear=' + $('#makeModelYear').val();
+                        $(document).ready(function () {
+                            console.log('ready');
+                            $('#frmSaveEmail').submit(function (e) {
+                                send();
+                                return false;
+                            });
+                        });
+                        function send() {
+                            var imagePath = '@Url.Content("~/Images/")';
+                            var recipient = $.trim(('#recipient').val());
+                            var subject = $.trim(('#subject').val());
+                            var body = $.trim(('#body').val());
 
-            var editPath = '@Url.Action("Edit", "Admin")';
-            console.log(params)
-            $.ajax({
-                type: 'GET',
-                url: 'https://localhost:44388/api/vehicles/search' + '?' + params,
-                success: function (results) {
-                    $('#searchResults').empty();
-                    $.each(results, function () {
-                        var html = '';
-
-                        $('#searchResults').append(html);
-                    });
-                },
-                error: function () {
-                    alert('Error sending email.')
-                }
-            });
-        }
-    </script>*@
+                            console.log(recipient)
+                            $.ajax({
+                                type: 'POST',
+                                url: 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js',
+                                data: "{ recipient: '" + recipient + "', subject: '" + subject + "', body: '" + body + "' }",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (results) {
+                                    alert('Email sent successfully.')
+                                },
+                                error: function () {
+                                    alert('Error sending email.')
+                                },
+                                failure: function (r) {
+                                    alert('Send failure');
+                                }
+                            });
+                        }
+                    </script>*@
 }

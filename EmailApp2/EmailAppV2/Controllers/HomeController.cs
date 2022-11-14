@@ -35,8 +35,19 @@ namespace EmailAppV2.Controllers
             if (ModelState.IsValid)
             {
                 var repo = new EmailRepository();
+                var webService = new WebService1();
                 model.EmailLog.SendDate = DateTime.Now;
-                model.EmailLog.SendStatus = true;
+
+                webService.SendEmail(model);
+                for (int i = 0; i < 2; i++)
+                {
+                    if (model.EmailLog.SendStatus == true)
+                    {
+                        i = 2;
+                    }
+                    webService.SendEmail(model);
+                }
+
                 SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
 
                 model.EmailLog.SenderEmail = smtpSection.From;
