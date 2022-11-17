@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace EmailAppV2.Models
 {
@@ -14,6 +15,7 @@ namespace EmailAppV2.Models
         public string BlindCarbonCopies { get; set; }
         public bool IsBodyHtml { get; set; }
         //In a real app, this will be a list of all files attached rather than only one file option
+        public HttpPostedFileBase Attachment { get; set; }
         public string AttachmentName { get; set; }
         public string ReplyToEmail { get; set; }
     }
