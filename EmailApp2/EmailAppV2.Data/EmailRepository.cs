@@ -1,4 +1,5 @@
-﻿using EmailAppV2.Models;
+﻿using EmailAppV2.Data.Interfaces;
+using EmailAppV2.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace EmailAppV2.Data
 {
-    public class EmailRepository
+    public class EmailRepository : IEmailRepository
     {
         public void Create(EmailLog email)
         {

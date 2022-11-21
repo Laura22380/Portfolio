@@ -46,7 +46,6 @@ namespace EmailAppV2
                     mm.Attachments.Add(attachment);
                 }
                 
-
                 try
                 {
                     smtp.Send(mm);
